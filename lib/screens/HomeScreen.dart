@@ -17,16 +17,16 @@ class HomeScreen extends StatelessWidget {
         controller: controller.motionTabBarController,
         children: <Widget>[
           Center(
-            child: Text("Dashboard"),
-          ),
-          Center(
             child: Text("Home"),
           ),
           Center(
-            child: Text("Profile"),
+            child: Text("History"),
           ),
           Center(
-            child: Text("Settings"),
+            child: Text("MY APPOINTMENT"),
+          ),
+          Center(
+            child: Text("PROFILE"),
           ),
         ],
       ),
@@ -40,10 +40,10 @@ class HomeScreen extends StatelessWidget {
           Icons.calendar_month_outlined,
           Icons.person_pin_rounded
         ],
-        tabSize: 50,
+        tabSize: 60,
         tabBarHeight: 55,
         textStyle: TextStyle(
-          fontSize: 12,
+          fontSize: 9,
           color: Colors.black,
           fontWeight: FontWeight.w500,
         ),
