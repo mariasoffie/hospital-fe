@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hospitalapps/controllers/HomeController.dart';
+import 'package:hospitalapps/screens/ScreenDua.dart';
+import 'package:hospitalapps/screens/ScreenEmpat.dart';
+import 'package:hospitalapps/screens/ScreenSatu.dart';
+import 'package:hospitalapps/screens/ScreenTiga.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
 
-class HomeScreen extends StatelessWidget {
+class RoutesScreen extends StatelessWidget {
   final HomeController controller = Get.put(HomeController());
 
   @override
@@ -16,64 +20,10 @@ class HomeScreen extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         controller: controller.motionTabBarController,
         children: <Widget>[
-          Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Hello. username!"),
-                    Icon(
-                      Icons.notifications,
-                      color: Colors.red[500],
-                    )
-                  ],
-                ),
-                Divider(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text("Consultation"),
-                    Text("Medical Checkup"),
-                    Text("Doctor Schedule"),
-                    Text("Ambulance")
-                  ],
-                ),
-                Divider(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [DoctorList()],
-                ),
-                Divider(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Advertisement"),
-                    Image.asset(
-                      'assets/ads1.png',
-                      width: 500,
-                      height: 250,
-                    ),
-                    Image.asset(
-                      'assets/ads2.png',
-                      width: 500,
-                      height: 250,
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-          Center(
-            child: Text("History"),
-          ),
-          Center(
-            child: Text("MY APPOINTMENT"),
-          ),
-          Center(
-            child: Text("PROFILE"),
-          ),
+          ScreenSatu(),
+          ScreenDua(),
+          ScreenTiga(),
+          ScreenEmpat(),
         ],
       ),
       bottomNavigationBar: MotionTabBar(
@@ -100,7 +50,23 @@ class HomeScreen extends StatelessWidget {
         tabIconSelectedColor: Colors.white,
         tabBarColor: Colors.white,
         onTabItemSelected: (int value) {
-          controller.changeTabIndex(value);
+          switch (value) {
+            case 0:
+              controller.motionTabBarController.index = value;
+              break;
+            case 1:
+              controller.motionTabBarController.index = value;
+              break;
+            case 2:
+              controller.motionTabBarController.index = value;
+              break;
+            case 3:
+              controller.motionTabBarController.index = value;
+              break;
+            default:
+              controller.motionTabBarController.index = 0;
+              break;
+          }
         },
       ),
     );
