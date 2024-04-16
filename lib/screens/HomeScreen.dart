@@ -153,6 +153,48 @@ class DoctorList extends StatelessWidget {
               ],
             ),
           ],
+        ),
+        // Background Container
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.grey[200],
+            borderRadius: BorderRadius.circular(10),
+          ),
+          width: 300,
+          height: 150,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Dr. John Doe',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'Specialist: Pediatrician',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'Rating: 4.8/5',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                SizedBox(height: 5),
+                StartConsultation()
+              ],
+            ),
+          ],
         )
       ],
     );
